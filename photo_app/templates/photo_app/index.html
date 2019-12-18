@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>HOme page of almostIG</h1>
-</body>
-</html>
+{% extends "photo_app/base.html" %}
+<title>
+    {% block title %}
+        Almost IG
+    {% endblock %}
+</title>
+
+
+{% block content %}
+
+{% for up in upload %}
+<img src="{{up.photo.url}}" alt="pic">
+<h2>{{up.caption}}</h2>
+<h6>{{up.User}}</h6>
+<h3>{{up.time_stamp}}</h3>
+
+{% endfor %}
+
+{% endblock %}
