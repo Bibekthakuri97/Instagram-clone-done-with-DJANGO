@@ -8,3 +8,12 @@ class Photomodel(models.Model):
     photo = models.ImageField(upload_to='upload_pic')
     caption = models.TextField(blank=True, null=True)
     likes = models.PositiveIntegerField(default=0)
+
+        
+class Commentmodel(models.Model):
+
+    comment = models.TextField(max_length=200)
+    timestamp1 = models.DateTimeField(auto_now_add=True)
+    commented_by = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    parent_post = models.ForeignKey(Photomodel,on_delete=models.CASCADE)
+

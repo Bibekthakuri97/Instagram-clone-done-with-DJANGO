@@ -12,7 +12,13 @@
 <img src="{{up.photo.url}}" alt="pic">
 <h2>{{up.caption}}</h2>
 <h6>{{up.User}}</h6>
-<h3>{{up.time_stamp}}</h3>
+<h3>Uploaded at: {{up.time_stamp}}</h3>
+<h5>likes: {{up.likes}}</h5><br>
+    
+    {% for com in comupload %}
+    <h7>{{com.comment}} by {{com.commented_by}} at {{com.timestamp1}}</h7>
+    {% endfor %}
+    <br>
 
 {% endfor %}
 
