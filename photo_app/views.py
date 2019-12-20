@@ -5,9 +5,29 @@ from .forms import Photoform,Commentform
 # Create your views here.
 def index(request):
     if 'id' in request.session:
-        upload = Photomodel.objects.all()
-        comupload = Commentmodel.objects.all()
-        return render(request, 'photo_app/index.html',{'upload':upload,'comupload':comupload})
+        # upload = Photomodel.objects.all()
+        # #id = Photomodel.objects.filter(id)
+        # comupload = Commentmodel.objects.filter(parent_post=)
+
+
+        # #comupload = Commentmodel.objects.all()
+        # return render(request, 'photo_app/index.html',{'upload':upload,'comupload':comupload})
+        # photos = Photomodel.objects.all()
+        # data = []
+        # for photo in photos:
+        #     two_comments = Commentmodel.objects.filter(parent_post=photo)[:2]
+        #     d = {
+        #         'photo': photo,
+        #         'comments': two_comments
+        #     }
+        #     data.append(d)
+        # context = {
+        #     'posts': data
+        # }
+        # return render(request, 'photo_app/index.html', context)
+
+
+
     else:
         return redirect('user:login')
     #return HttpResponse('Hello world')

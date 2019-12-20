@@ -8,7 +8,7 @@
 
 {% block content %}
 
-{% for up in upload %}
+{% for post in posts %}
 
 <style>
     p.one {
@@ -16,49 +16,24 @@
     }
 </style>    
 
-<!-- <div class="card mx-auto" style="width: 50rem;">
-  <h5 class="card-title">Card title</h5>
-  <img src="https://cdn2.stylecraze.com/wp-content/uploads/2018/03/1.-Kendall-Jenner.jpg" class="card-img-top img-thumbnail" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> -->
-
-
-
-
-
 <div class="card mx-auto" style="width: 50rem;">
-    <p class="one"><img  src="{{up.photo.url}}" class="card-img-top img-thumbnail" alt="...">
-        <h11>likes: {{up.likes}}</h11>
+    <p class="one"><img  src="{{post.photo.url}}" class="card-img-top img-thumbnail" alt="...">
+        <h11>likes: {{post.likes}}</h11>
     </p> 
     
     <div class="card-body">
-      <h7 class="card-title"><b>{{up.User}}</b></h7>   <h9>{{up.caption}}</h9><br>
-      <h15><small>{{up.time_stamp}}</small></h15><br>
+      <h7 class="card-title"><b>{{post.User}}</b></h7>   <h9>{{post.caption}}</h9><br>
+      <h15><small>{{post.time_stamp}}</small></h15><br>
       
       <p class="card-text">
-        {% for com in comupload %}
-        {% if}
-        <h7>{{com.comment}}</h7> by <h10>{{com.commented_by}} at <small>{{com.timestamp1}}</small></h10>
+        {% for comment in post.comments %}
+        <h7>{{comment}}</h7> by <h10>{{commented_by}} at <small>{{timestamp1}}</small></h10>
         {% endfor %}
         
       </p>
-      <a href="{% url 'photo_app:edit' up.id %}">Edit</a>
+      <a href="{% url 'photo_app:edit' post.id %}">Edit</a>
     </div>
   </div>
-<!-- 
-<img src="{{up.photo.url}}" alt="pic">
-<h2>{{up.caption}}</h2>
-<h6>{{up.User}}</h6>
-<h3>Uploaded at: {{up.time_stamp}}</h3>
-<h5>likes: {{up.likes}}</h5><br>
-    
-    {% for com in comupload %}
-    <h7>{{com.comment}} by {{com.commented_by}} at {{com.timestamp1}}</h7>
-    {% endfor %}
-    <br>-->
 
 {% endfor %} 
 
