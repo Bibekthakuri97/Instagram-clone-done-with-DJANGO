@@ -4,7 +4,7 @@ from .models import UserModel
 
 # Create your views here.
 def display(request):
-    return render(request, 'user_app\display.html')
+    return render(request, 'user_app/display.html')
 
 def logout(request):
     request.session.flush()
@@ -29,5 +29,5 @@ def loginauth(request):
             return HttpResponse('Milenaaaaa')
 
     else:    
-        return render(request, 'user_app\login.html')
+        return render(request, 'user_app/login.html')
 # Create your views here.

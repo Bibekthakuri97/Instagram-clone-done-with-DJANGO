@@ -1,9 +1,8 @@
 {% extends "photo_app/base.html" %}
-<title>
+
     {% block title %}
         Almost IG
     {% endblock %}
-</title>
 
 
 {% block content %}
@@ -17,21 +16,21 @@
 </style>    
 
 <div class="card mx-auto" style="width: 50rem;">
-    <p class="one"><img  src="{{post.photo.url}}" class="card-img-top img-thumbnail" alt="...">
-        <h11>likes: {{post.likes}}</h11>
+    <p class="one"><img  src="{{post.photo.photo.url}}" class="card-img-top img-thumbnail" alt="...">
+        <h11>likes: {{post.photo.likes}}</h11>
     </p> 
     
     <div class="card-body">
-      <h7 class="card-title"><b>{{post.User}}</b></h7>   <h9>{{post.caption}}</h9><br>
-      <h15><small>{{post.time_stamp}}</small></h15><br>
+      <h7 class="card-title"><b>{{post.photo.User.username}}</b></h7>   <h9>{{post.photo.caption}}</h9><br>
+      <h15><small>{{post.photo.time_stamp}}</small></h15><br>
       
       <p class="card-text">
         {% for comment in post.comments %}
-        <h7>{{comment}}</h7> by <h10>{{commented_by}} at <small>{{timestamp1}}</small></h10>
+        <h7>{{comment.comment}}</h7> by <h10>{{comment.commented_by}} at <small>{{comment.timestamp1}}</small></h10>
         {% endfor %}
         
       </p>
-      <a href="{% url 'photo_app:edit' post.id %}">Edit</a>
+      <a href="{% url 'photo_app:edit' post.photo.id %}">Edit</a>
     </div>
   </div>
 
