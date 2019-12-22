@@ -7,7 +7,7 @@
 
 {% block content %}
 
-{% for post in posts %}
+{% for up in upload %}
 
 <style>
     p.one {
@@ -16,13 +16,13 @@
 </style>    
 
 <div class="card mx-auto" style="width: 50rem;">
-    <p class="one"><img  src="{{post.photo.photo.url}}" class="card-img-top img-thumbnail" alt="...">
-        <h11>likes: {{post.photo.likes}}</h11>
+    <p class="one"><img  src="{{up.photo.url}}" class="card-img-top img-thumbnail" alt="...">
+        <h11>likes: {{up.photo.likes}}</h11>
     </p> 
     
     <div class="card-body">
-      <h7 class="card-title"><b>{{post.photo.User.username}}</b></h7>   <h9>{{post.photo.caption}}</h9><br>
-      <h15><small>{{post.photo.time_stamp}}</small></h15><br>
+      <h7 class="card-title"><b>{{up.User}}</b></h7>   <h9>{{up.caption}}</h9><br>
+      <h15><small>{{up.time_stamp}}</small></h15><br>
       
       <p class="card-text">
         {% for comment in post.comments %}
@@ -30,6 +30,9 @@
         {% endfor %}
         
       </p>
+      <a href="{% url 'photo_app:edit' up.id %}">Edit</a>
+      <a href="{% url 'photo_app:delete' up.id %}">Delete</a>
+
     </div>
   </div>
 
